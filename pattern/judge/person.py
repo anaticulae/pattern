@@ -7,18 +7,38 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pattern.judge.date
-import pattern.judge.person
-import pattern.judge.url
+
+def validate(item: str) -> float:
+    result = max([strategy(item) for strategy in [
+        dictionary,
+    ]])
+    return result
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
+def dictionary(item):
+    splitted = item.split(' ')
+    for name in splitted:
+        if all([
+                name not in SURNAME,
+                name not in NAME,
+                name != 'von',
+        ]):
+            return 0.0
+    return 1.0
 
 
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
+# TODO: LOAD FROM FILE
 
+SURNAME = {
+    'Angela',
+    'Frank',
+    'Gero',
+    'Martin',
+}
 
-def is_person(item: str) -> float:
-    return pattern.judge.person.validate(item)
+NAME = {
+    'Gatterburg',
+    'Hornig',
+    'Randow',
+    'Simons',
+}

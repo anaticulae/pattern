@@ -7,18 +7,17 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pattern.judge.date
-import pattern.judge.person
-import pattern.judge.url
+import pytest
+
+import pattern.checker
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
-
-
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
-
-
-def is_person(item: str) -> float:
-    return pattern.judge.person.validate(item)
+@pytest.mark.parametrize('item', [
+    'Angela Gatterburg',
+    'Frank Hornig',
+    'Gero von Randow',
+    'Martin Simons',
+])
+def test_is_person_valid(item):
+    valid = pattern.checker.is_person(item)
+    assert valid >= 1.0, item
