@@ -1,5 +1,12 @@
 Welcome to simply the best
-=================================
+==========================
+
+The purpose of this library is to write a wrapper to access higher level
+features to determine the likelihood of the meaning of a pattern.
+
+In the first step, this is reached to a lot of mocking. Later we will
+replace this functionalty by libraries from **facebook**, **google** and
+**co**.
 
 General
 -------
@@ -40,4 +47,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

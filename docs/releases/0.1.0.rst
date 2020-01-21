@@ -6,7 +6,7 @@ RP 0.1.0
 documentation
 -------------
 
-* [ ] add general project description
+* [x] add general project description
 
 regex
 -----
