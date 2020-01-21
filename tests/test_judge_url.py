@@ -6,13 +6,29 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-import pattern.judge.date
-import pattern.judge.url
+
+import pytest
+
+import pattern.checker
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
+@pytest.mark.parametrize('item', [
+    'spiegel.de',
+    pytest.param(
+        ('http://classiques.uqac.ca/classiques/Halbwachs_maurice/'
+         'memoire_collective/memoire_collective.pdf'),
+        id='uqac.ca',
+    ),
+])
+def test_is_url_valid(item):
+    valid = pattern.checker.is_url(item)
+    assert valid >= 1.0, item
 
 
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
+@pytest.mark.parametrize('item', [
+    'spiegel-de',
+    'http://info.spiegel,de',
+])
+def test_is_url_invalid(item):
+    valid = pattern.checker.is_url(item)
+    assert valid == 0.0, item

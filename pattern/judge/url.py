@@ -6,13 +6,23 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-import pattern.judge.date
-import pattern.judge.url
+import urllib.parse
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
+def validate(item: str) -> float:
+    result = [strategy(item) for strategy in [
+        urllib_parse,
+    ]]
+    return max(result)
 
 
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
+def urllib_parse(item):
+    # TODO: check this
+    if '.' not in item:
+        return 0.0
+    if ',' in item:
+        return 0.0
+    parsed = urllib.parse.urlparse(item)
+    if not parsed:
+        return 0.0
+    return 1.0
