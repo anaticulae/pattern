@@ -7,23 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pattern.judge.abbreviation
-import pattern.judge.date
-import pattern.judge.person
-import pattern.judge.url
+import pytest
+
+import pattern.checker
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
-
-
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
-
-
-def is_person(item: str) -> float:
-    return pattern.judge.person.validate(item)
-
-
-def is_abbreviation(item: str) -> float:
-    return pattern.judge.abbreviation.validate(item)
+@pytest.mark.parametrize('item', [
+    'ebd.',
+    'o.J.',
+    'o.A.',
+])
+def test_is_abbreviation_valid(item):
+    valid = pattern.checker.is_abbreviation(item)
+    assert valid >= 1.0, item

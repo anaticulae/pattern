@@ -7,23 +7,23 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pattern.judge.abbreviation
-import pattern.judge.date
-import pattern.judge.person
-import pattern.judge.url
+
+def validate(item: str) -> float:
+    result = max([strategy(item) for strategy in [
+        dictionary,
+    ]])
+    return result
 
 
-def is_date(item: str) -> float:
-    return pattern.judge.date.validate(item)
+def dictionary(item):
+    if item not in ABBREVIATION:
+        return 0.0
+    return 1.0
 
 
-def is_url(item: str) -> float:
-    return pattern.judge.url.validate(item)
-
-
-def is_person(item: str) -> float:
-    return pattern.judge.person.validate(item)
-
-
-def is_abbreviation(item: str) -> float:
-    return pattern.judge.abbreviation.validate(item)
+ABBREVIATION = {
+    'ebd.',
+    'o.A.',
+    'o.J.',
+    'vgl.',
+}

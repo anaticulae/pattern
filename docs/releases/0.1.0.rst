@@ -21,7 +21,7 @@ sentence
 checker
 -------
 
-* [ ] add method: isdate, isurl, isperson, ..
+* [x] add method: isdate, isurl, isperson, ..
 
 * [ ] add method issentence, isparagraph
 
