@@ -23,7 +23,7 @@ def dictionary(item):
 
 ABBREVIATION = {
     'ebd.',
-    'o.A.',
-    'o.J.',
+    # 'o.A.', handled by person
+    # 'o.J.', handled by date
     'vgl.',
 }

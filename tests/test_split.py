@@ -14,6 +14,8 @@ EXAMPLE = """\
 Angela Gatterburg, spiegel.de, 21.4.2009
 Martin Simons, welt.de, 26.10.2009
 Frank Hornig, spiegel.de, 17.7.2006
+o.A., bild.de, o.J.
+o.A., computerwoche.de, 23.1.2008
 """
 
 

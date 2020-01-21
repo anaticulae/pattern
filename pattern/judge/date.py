@@ -11,10 +11,13 @@ import re
 
 
 def validate(item: str) -> float:
-    result = [strategy(item) for strategy in [
-        day_month_year,
-        day_name_year,
-    ]]
+    result = [
+        strategy(item) for strategy in [
+            day_month_year,
+            day_name_year,
+            no_date,
+        ]
+    ]
     return max(result)
 
 
@@ -48,3 +51,9 @@ def day_name_year(item: str):
     if matched:
         return 1.0
     return 0.0
+
+
+def no_date(item: str):
+    if item != 'o.J.':
+        return 0.0
+    return 1.0
