@@ -1,0 +1,36 @@
+.. _0_1_0:
+
+RP 0.1.0
+=========
+
+documentation
+-------------
+
+* [ ] add general project description
+
+regex
+-----
+
+* [ ] add text pattern with valid user character
+
+sentence
+--------
+
+* [ ] add method to split text into sentences.
+
+checker
+-------
+
+* [ ] add method: isdate, isurl, isperson, ..
+
+* [ ] add method issentence, isparagraph
+
+
+code quality
+------------
+
+before
+~~~~~~
+
+* Total coverage: 0.0%
+* Your code has been rated: 10.0/10
