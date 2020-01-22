@@ -11,7 +11,7 @@ documentation
 regex
 -----
 
-* [ ] add text pattern with valid user character
+* [x] add text pattern with valid user character
 
 sentence
 --------
