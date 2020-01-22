@@ -21,6 +21,8 @@ def validate(item: str) -> float:
     return max(result)
 
 
+DATE_FACTOR = 5.0
+
 MONTH = (r'(?P<month>Januar|Februar|März|April|Mai|Juni|Juli|'
          r'August|September|Oktober|November|Dezember)')
 
@@ -38,7 +40,7 @@ def day_month_year(item: str):
             return 0.0
         if not 0 <= year <= 2050:
             return 0.0
-        return 1.0
+        return DATE_FACTOR
     return 0.0
 
 
@@ -49,11 +51,11 @@ def day_name_year(item: str):
                r'(?P<year>\d{4})')
     matched = re.match(pattern, item)
     if matched:
-        return 1.0
+        return DATE_FACTOR
     return 0.0
 
 
 def no_date(item: str):
     if item != 'o.J.':
         return 0.0
-    return 1.0
+    return DATE_FACTOR
