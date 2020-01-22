@@ -6,24 +6,15 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-import enum
 
 import pattern.checker
-
-
-class Token(enum.Enum):
-    Abbreviation = enum.auto()
-    Comma = enum.auto()
-    Date = enum.auto()
-    Person = enum.auto()
-    URL = enum.auto()
-
+import pattern.tok
 
 STRATEGY = [
-    (Token.Abbreviation, pattern.checker.is_abbreviation),
-    (Token.Date, pattern.checker.is_date),
-    (Token.Person, pattern.checker.is_person),
-    (Token.URL, pattern.checker.is_url),
+    (pattern.tok.Token.Abbreviation, pattern.checker.is_abbreviation),
+    (pattern.tok.Token.Date, pattern.checker.is_date),
+    (pattern.tok.Token.Person, pattern.checker.is_person),
+    (pattern.tok.Token.URL, pattern.checker.is_url),
 ]
 
 

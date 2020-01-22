@@ -23,10 +23,10 @@ o.A., computerwoche.de, 23.1.2008
 def test_split_person_url_date(line):
     splitted = pattern.split.split(line)
     expected = [
-        pattern.split.Token.Person,
-        pattern.split.Token.Comma,
-        pattern.split.Token.URL,
-        pattern.split.Token.Comma,
-        pattern.split.Token.Date,
+        pattern.tok.Token.Person,
+        pattern.tok.Token.Comma,
+        pattern.tok.Token.URL,
+        pattern.tok.Token.Comma,
+        pattern.tok.Token.Date,
     ]
     assert splitted == expected, str(splitted)
