@@ -9,6 +9,7 @@
 
 
 def validate(item: str) -> float:
+    item = item.lower()
     result = max([strategy(item) for strategy in [
         dictionary,
     ]])
@@ -21,18 +22,47 @@ def dictionary(item):
     return 1.0
 
 
-ABBREVIATION = {
-    # 'o.A.', handled by person
-    # 'o.J.', handled by date
-    'vgl.',
-}
-
-
 def same_source(item) -> float:
     if item in SAME_SOURCE:
         return 5.0
     return 0.0
 
+
+ABBREVIATION = {
+    'Aufl.',
+    'Bd.',
+    'Co.',
+    'Diss.',
+    'Dok.',
+    'Forts.',
+    'Hrsg.',
+    'Jg.',
+    'Sp.',
+    'Verf.',
+    'Verl.',
+    'Vol.',
+    'a.a.O.',
+    'al.',
+    'bzw.',
+    'ebd.',
+    'ebd.:',
+    'et al',
+    'etc.',
+    'ff.'
+    'ggf.',
+    'lat.',
+    'mind.',
+    'o.A.',
+    'o.J.',
+    'o.V.',
+    'o.Ä',
+    's.',
+    'usw.',
+    'vgl.',
+    'z.B.',
+}
+
+ABBREVIATION = {item.lower() for item in ABBREVIATION}
 
 SAME_SOURCE = {
     'ebd.',

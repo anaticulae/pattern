@@ -12,9 +12,13 @@ import pytest
 import pattern.checker
 
 
-@pytest.mark.parametrize('item', [
-    'ebd.',
-])
+@pytest.mark.parametrize(
+    'item',
+    [
+        'ebd.',
+        'o.J.',  # handled by date
+        'o.A.',  # handled by person
+    ])
 def test_is_abbreviation_valid(item):
     valid = pattern.checker.is_abbreviation(item)
     assert valid >= 1.0, item
@@ -23,10 +27,9 @@ def test_is_abbreviation_valid(item):
 @pytest.mark.parametrize(
     'item',
     [
-        'o.J.',  # handled by date
-        'o.A.',  # handled by person
+        'Hallo',
     ],
 )
-def test_is_abbreviation_valid(item):
+def test_is_abbreviation_invalid(item):
     valid = pattern.checker.is_abbreviation(item)
     assert valid == 0.0, item

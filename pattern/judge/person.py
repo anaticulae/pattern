@@ -24,7 +24,8 @@ def dictionary(item):
                 name != 'von',
         ]):
             return 0.0
-    return 1.0
+    # prefere person over abbreviation
+    return 5.0
 
 
 # TODO: LOAD FROM FILE

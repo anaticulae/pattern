@@ -30,3 +30,19 @@ def test_split_person_url_date(line):
         pattern.tok.Token.Date,
     ]
     assert splitted == expected, str(splitted)
+
+
+MORE = """\
+s. ebd.: 126
+"""
+
+
+@pytest.mark.parametrize('line', MORE.splitlines())
+def test_abbreviation_autor_page(line):
+    splitted = pattern.split.split(line)
+    expected = [
+        pattern.tok.Token.Abbreviation,
+        pattern.tok.Token.SAME_SOURCE,
+        pattern.tok.Token.PAGE,
+    ]
+    assert splitted == expected, str(splitted)
