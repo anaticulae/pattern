@@ -9,6 +9,7 @@
 
 import pattern.judge.abbreviation
 import pattern.judge.date
+import pattern.judge.number
 import pattern.judge.person
 import pattern.judge.url
 
@@ -27,3 +28,7 @@ def is_person(item: str) -> float:
 
 def is_abbreviation(item: str) -> float:
     return pattern.judge.abbreviation.validate(item)
+
+
+def is_number(item: str) -> float:
+    return pattern.judge.number.validate(item)

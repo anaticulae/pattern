@@ -15,6 +15,7 @@ STRATEGY = [
     (pattern.tok.Token.Date, pattern.checker.is_date),
     (pattern.tok.Token.Person, pattern.checker.is_person),
     (pattern.tok.Token.URL, pattern.checker.is_url),
+    (pattern.tok.Token.PAGE, pattern.checker.is_number),
 ]
 
 
