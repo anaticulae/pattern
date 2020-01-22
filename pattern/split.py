@@ -20,18 +20,32 @@ STRATEGY = [
 
 
 def split(line: str):
-    splitted = line.split(',')
+    comma = ',' in line
     result = []
 
+    splitted = tokenize(line)
     for token in splitted:
         token = token.strip()
         result.append(analyze(token))
-        result.append(Token.Comma)
-    result = result[:-1]  # remove last comma token
+
+    if comma:
+        items = []
+        for item in result:
+            items.append(item)
+            items.append(pattern.tok.Token.Comma)
+        result = items[:-1]  # remove last comma token
     return result
 
 
-def analyze(token: str) -> Token:
+def tokenize(line: str):
+    if ',' in line:
+        splitted = line.split(',')
+    else:
+        splitted = line.split()
+    return splitted
+
+
+def analyze(token: str) -> pattern.tok.Token:
     result = [strategy(token) for _, strategy in STRATEGY]
     index = max_index(result)
     return STRATEGY[index][0]
