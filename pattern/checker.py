@@ -32,3 +32,7 @@ def is_abbreviation(item: str) -> float:
 
 def is_number(item: str) -> float:
     return pattern.judge.number.validate(item)
+
+
+def is_samesource(item: str) -> float:
+    return pattern.judge.abbreviation.same_source(item)

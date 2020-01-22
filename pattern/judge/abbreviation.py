@@ -22,8 +22,19 @@ def dictionary(item):
 
 
 ABBREVIATION = {
-    'ebd.',
     # 'o.A.', handled by person
     # 'o.J.', handled by date
     'vgl.',
+}
+
+
+def same_source(item) -> float:
+    if item in SAME_SOURCE:
+        return 5.0
+    return 0.0
+
+
+SAME_SOURCE = {
+    'ebd.',
+    'ebd.:',
 }
