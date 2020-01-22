@@ -16,7 +16,7 @@ regex
 sentence
 --------
 
-* [ ] add method to split text into sentences.
+* [x] add method to split text into sentences.
 
 checker
 -------
