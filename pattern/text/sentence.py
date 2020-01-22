@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import contextlib
 import typing
 
 import pattern.checker
@@ -18,7 +19,8 @@ def split(text: str) -> typing.List[str]:
     Args:
         text(str): text to split without any newlines
     Returns:
-        list of splitted sentences"""
+        list of splitted sentences
+    """
     # TODO: REPLACE WITH EXTERNAL SMART ALTERNATIVE, facebook, google or
     # something else.
     result = []
@@ -53,6 +55,9 @@ def split(text: str) -> typing.List[str]:
 def is_closed(token: list) -> bool:
     """Check that the last character of the last token of a sentences
     contains a sentence close sign."""
+    with contextlib.suppress(AttributeError):
+        # support str as input
+        token = token.split()
     assert token, 'empty sentence'
     last = token[-1].strip()
     last_char = last[-1]

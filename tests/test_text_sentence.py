@@ -9,6 +9,7 @@
 
 import pytest
 
+import pattern.checker
 import pattern.text.sentence
 
 PARAGRAPH = """\
@@ -25,6 +26,8 @@ ausschließlich die maskuline Form verwendet, wobei immer beide
 Geschlechter gemeint sind.
 """
 
+NO_SENTENCE = 'This is not a sentence'
+
 
 @pytest.mark.parametrize('text, sentences', [
     pytest.param(PARAGRAPH, 3, id='three_sentences'),
@@ -33,3 +36,18 @@ Geschlechter gemeint sind.
 def test_text_sentence_split(text, sentences):
     splitted = pattern.text.sentence.split(text)
     assert len(splitted) == sentences, splitted
+
+
+@pytest.mark.parametrize('line', [
+    pytest.param(SINGLE, id='single_sentences'),
+])
+def test_text_sentence_issentence(line):
+    assert pattern.checker.is_sentence(line), line
+
+
+@pytest.mark.parametrize('line', [
+    pytest.param(PARAGRAPH, id='three_sentences'),
+    pytest.param(NO_SENTENCE, id='no_sentence'),
+])
+def test_text_sentence_issentence_invalid(line):
+    assert not pattern.checker.is_sentence(line), line

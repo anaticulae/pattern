@@ -23,7 +23,7 @@ checker
 
 * [x] add method: isdate, isurl, isperson, ..
 
-* [ ] add method issentence, isparagraph
+* [x] add method issentence
 
 
 code quality

@@ -12,6 +12,7 @@ import pattern.judge.date
 import pattern.judge.number
 import pattern.judge.person
 import pattern.judge.url
+import pattern.text.sentence
 
 
 def is_date(item: str) -> float:
@@ -36,3 +37,12 @@ def is_number(item: str) -> float:
 
 def is_samesource(item: str) -> float:
     return pattern.judge.abbreviation.same_source(item)
+
+
+def is_sentence(item: str) -> float:
+    splitted = pattern.text.sentence.split(item)
+    if len(splitted) == 1:
+        splitted = splitted[0]
+        if pattern.text.sentence.is_closed(splitted):
+            return 1.0
+    return 0.0
