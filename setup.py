@@ -43,6 +43,7 @@ if __name__ == "__main__":
         packages=[
             'pattern',
             'pattern.judge',
+            'pattern.machine',
             'pattern.text',
         ],
     )
