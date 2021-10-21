@@ -9,6 +9,8 @@
 
 import os
 
+from pattern.machine.machine import match
+
 __version__ = '0.1.1'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
