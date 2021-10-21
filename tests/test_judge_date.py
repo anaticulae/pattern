@@ -25,4 +25,4 @@ def test_is_date_valid(item):
 ])
 def test_is_date_invalid(item):
     valid = pattern.checker.is_date(item)
-    assert valid == 0.0, item
+    assert not valid, item

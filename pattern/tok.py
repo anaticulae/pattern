@@ -11,10 +11,10 @@ import enum
 
 
 class Token(enum.Enum):
-    Abbreviation = enum.auto()
-    Comma = enum.auto()
-    Date = enum.auto()
+    ABBREVIATION = enum.auto()
+    COMMA = enum.auto()
+    DATE = enum.auto()
     PAGE = enum.auto()
-    Person = enum.auto()
+    PERSON = enum.auto()
     SAME_SOURCE = enum.auto()
     URL = enum.auto()

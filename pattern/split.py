@@ -11,10 +11,10 @@ import pattern.checker
 import pattern.tok
 
 STRATEGY = [
-    (pattern.tok.Token.Abbreviation, pattern.checker.is_abbreviation),
-    (pattern.tok.Token.Date, pattern.checker.is_date),
+    (pattern.tok.Token.ABBREVIATION, pattern.checker.is_abbreviation),
+    (pattern.tok.Token.DATE, pattern.checker.is_date),
     (pattern.tok.Token.PAGE, pattern.checker.is_number),
-    (pattern.tok.Token.Person, pattern.checker.is_person),
+    (pattern.tok.Token.PERSON, pattern.checker.is_person),
     (pattern.tok.Token.SAME_SOURCE, pattern.checker.is_samesource),
     (pattern.tok.Token.URL, pattern.checker.is_url),
 ]
@@ -33,7 +33,7 @@ def split(line: str):
         items = []
         for item in result:
             items.append(item)
-            items.append(pattern.tok.Token.Comma)
+            items.append(pattern.tok.Token.COMMA)
         result = items[:-1]  # remove last comma token
     return result
 

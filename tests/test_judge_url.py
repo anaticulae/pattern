@@ -31,4 +31,4 @@ def test_is_url_valid(item):
 ])
 def test_is_url_invalid(item):
     valid = pattern.checker.is_url(item)
-    assert valid == 0.0, item
+    assert not valid, item

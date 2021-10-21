@@ -23,11 +23,11 @@ o.A., computerwoche.de, 23.1.2008
 def test_split_person_url_date(line):
     splitted = pattern.split.split(line)
     expected = [
-        pattern.tok.Token.Person,
-        pattern.tok.Token.Comma,
+        pattern.tok.Token.PERSON,
+        pattern.tok.Token.COMMA,
         pattern.tok.Token.URL,
-        pattern.tok.Token.Comma,
-        pattern.tok.Token.Date,
+        pattern.tok.Token.COMMA,
+        pattern.tok.Token.DATE,
     ]
     assert splitted == expected, str(splitted)
 
@@ -41,7 +41,7 @@ s. ebd.: 126
 def test_abbreviation_autor_page(line):
     splitted = pattern.split.split(line)
     expected = [
-        pattern.tok.Token.Abbreviation,
+        pattern.tok.Token.ABBREVIATION,
         pattern.tok.Token.SAME_SOURCE,
         pattern.tok.Token.PAGE,
     ]
