@@ -9,10 +9,10 @@
 
 
 def user(
-        parameter='text',
-        greedy: bool = True,
-        newlines: bool = False,
-        limit=None,
+    parameter='text',
+    greedy: bool = True,
+    newlines: bool = False,
+    limit=None,
 ):
     if limit is None:
         limit = (1, None)
