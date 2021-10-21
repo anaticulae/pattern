@@ -27,4 +27,3 @@ Every noteable change is logged here.
 * add general description of library purpose (bdb1e3834c9a)
 
 ## v0.0.0 Initial release
-
