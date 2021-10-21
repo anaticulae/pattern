@@ -17,6 +17,7 @@ http://dx.doi.org/10.1109/2.84877.
 """
 
 URL = 'URL:'
+IN = r'IN:[^\*]+'
 
 PATTERN = (
     german.issn,
@@ -24,7 +25,9 @@ PATTERN = (
     german.doi,
     german.pagenumbers,
     german.hyperlink,
+    german.dates,
     URL,
+    pattern.Regex(regex=IN, name='in-pattern'),
 )
 
 IMPROVES = (german.href_magic,)
@@ -40,4 +43,6 @@ def test_machine():
     assert 'url' not in replaced
     assert replaced.count('*') >= 82
     values = list(matched['data'].keys())
-    assert values == ['issn', 'doi', 'pagenumbers', 'hyperlink', 'url:']
+    assert values == [
+        'issn', 'doi', 'pagenumbers', 'hyperlink', 'url:', 'in-pattern'
+    ]

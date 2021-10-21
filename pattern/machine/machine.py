@@ -55,6 +55,13 @@ class Fixed(PatternMixin):
         return re.findall(self.const, text, utila.NOCASE_VERBOSE)
 
 
+class Regex(Fixed):
+
+    def __init__(self, regex: str, name: str):
+        super().__init__(const=regex)
+        self.name = name.lower()
+
+
 class Method(PatternMixin):
 
     def __init__(self, method: callable):
@@ -76,6 +83,8 @@ def prepare(patterns: list):
     for pattern in patterns:
         if isinstance(pattern, str):
             result.append(Fixed(const=pattern))
+        elif isinstance(pattern, PatternMixin):
+            result.append(pattern)
         elif callable(pattern):
             result.append(Method(pattern))
     return result
