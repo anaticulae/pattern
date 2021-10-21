@@ -33,11 +33,11 @@ IMPROVES = (german.href_magic,)
 def test_machine():
     matched = pattern.match(
         RAW,
-        pattern=PATTERN,
+        patterns=PATTERN,
         improves=IMPROVES,
     )
     replaced = matched['replaced']
     assert 'url' not in replaced
     assert replaced.count('*') >= 82
     values = list(matched['data'].keys())
-    assert values == ['issn', 'doi', 'pagenumbers', 'hyperlink', 'URL:']
+    assert values == ['issn', 'doi', 'pagenumbers', 'hyperlink', 'url:']

@@ -6,7 +6,7 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-"""
+"""\
     Bill Nitzberg und Virginia Lo. Distributed Shared Memory: A Survey
     of Issue and Algorithms. In: Computer 24.8 (Aug. 1991), S. 52-60.
     issn: 0018-9162. doi: 10. 1109/2.84877. url:
@@ -19,31 +19,63 @@ import re
 import utila
 
 
-def match(text: str, pattern: list, improves: list = None) -> dict:
+def match(text: str, patterns: list, improves: list = None) -> dict:
     replaced = text
     # prepare data
     if improves:
         for improve in improves:
             replaced = improve(replaced)
     # collect pattern
+    patterns = prepare(patterns)
     collected = dict()
-    for method in pattern:
-        if isinstance(method, str):
-            name = method
-            token = re.escape(method)
-            method = lambda x: re.findall(token, x, utila.NOCASE_VERBOSE)
-        else:
-            name = method.__name__
-        verbose = 'verbose' in utila.attributes(method)
-        if verbose:
-            method = functools.partial(method, verbose=True)
-        searched = method(replaced)
-        if not searched:
+    for pattern in patterns:
+        matched = pattern(replaced)
+        if not matched:
             continue
-        for item in searched:
-            if verbose:
-                item = item[1]
+        for item in matched:
             replaced = replaced.replace(item, '*' * len(item))
-        collected[name] = searched
+        collected[pattern.name] = matched
     result = dict(text=text, replaced=replaced, data=collected)
+    return result
+
+
+class PatternMixin:
+
+    def __init__(self, name: str):
+        self.name = name
+
+
+class Fixed(PatternMixin):
+
+    def __init__(self, const: str):
+        super().__init__(name=const.lower())
+        self.const = const
+
+    def __call__(self, text):
+        return re.findall(self.const, text, utila.NOCASE_VERBOSE)
+
+
+class Method(PatternMixin):
+
+    def __init__(self, method: callable):
+        super().__init__(name=method.__name__.lower())
+        self.verbose = 'verbose' in utila.attributes(method)
+        if self.verbose:
+            method = functools.partial(method, verbose=True)
+        self.method = method
+
+    def __call__(self, text):
+        result = self.method(text)
+        if self.verbose:
+            result = [item[1] for item in result]
+        return result
+
+
+def prepare(patterns: list):
+    result = []
+    for pattern in patterns:
+        if isinstance(pattern, str):
+            result.append(Fixed(const=pattern))
+        elif callable(pattern):
+            result.append(Method(pattern))
     return result
