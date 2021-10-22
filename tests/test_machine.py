@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import utila
+
 import german
 import pattern
 
@@ -25,15 +27,17 @@ PATTERN = (
     german.doi,
     german.pagenumbers,
     german.hyperlink,
-    german.dates,
+    german.dates_master,
     URL,
+    pattern.SimpleCleanup,
     pattern.Regex(regex=IN, name='in-pattern'),
+    pattern.SimpleCleanup,
 )
 
 IMPROVES = (german.href_magic,)
 
 
-def test_machine():
+def test_machine_simple():
     matched = pattern.match(
         RAW,
         patterns=PATTERN,
@@ -44,5 +48,43 @@ def test_machine():
     assert replaced.count('*') >= 82
     values = list(matched['data'].keys())
     assert values == [
-        'issn', 'doi', 'pagenumbers', 'hyperlink', 'url:', 'in-pattern'
+        'issn', 'doi', 'pagenumbers', 'hyperlink', 'dates_master', 'url:',
+        'in-pattern'
     ]
+
+
+TITLE = """Michael Armbrust u.a. “Spark SQL: Relational Data Processing
+in Spark”. In: Proceedings of the 2015 ACM SIGMOD International
+Conference on Management of Data.SIGMOD’ 15. Melbourne, Victoria,
+Australia:ACM, 2015, S.1383–1394. isbn:978-1-4503-2758-9. doi:
+10.1145/2723372.2742797.url: http://doi.acm.org/10.1145/2723372.2742797.
+"""
+
+
+class Titles(pattern.PatternMixin):
+
+    QUOTATIONS = '“”'
+
+    def __init__(self):
+        super().__init__('titles')
+
+    def __call__(self, text):
+        indexs = utila.findindexs(text, Titles.QUOTATIONS)
+        if not indexs:
+            return []
+        start, stop = min(indexs), max(indexs)
+        result = [text[start:stop + 1]]
+        return result
+
+
+TITLES = list(PATTERN) + [Titles()]
+
+
+def test_machine_title():
+    matched = pattern.match(
+        TITLE,
+        patterns=TITLES,
+        improves=IMPROVES,
+    )
+    titles = matched['data']['titles']
+    assert titles == ['“Spark SQL: Relational Data Processing\nin Spark”']
