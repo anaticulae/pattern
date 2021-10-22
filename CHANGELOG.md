@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.2.0
+
+### Feature
+
+* add smart author pattern (217fe7ee06e8)
+* add option to use class based approach (bae3eca521c0)
+* add cleanup pattern (6c5299fdf855)
+* add parameter to decide to store data (95d63606d0d9)
+* add Regex pattern (5a216e655ace)
+* add first approach of pattern  machine (e42c9d39b1a1)
+
 ## v0.1.1
 
 ## v0.1.0
