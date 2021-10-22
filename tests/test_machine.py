@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import german
 import utila
 
-import german
 import pattern
 
 RAW = """Bill Nitzberg und Virginia Lo. Distributed Shared Memory: A
@@ -53,6 +53,37 @@ def test_machine_simple():
     ]
 
 
+class SmartAuthor(pattern.PatternMixin):
+
+    def __init__(self):
+        super().__init__('authors')
+
+    def __call__(self, text):
+        first_star = text.find('*')
+        if first_star != -1:
+            text = text[0:first_star]
+        words = text.split()
+        valid = [item for item in words if german.isperson(item)]
+        if not valid:
+            return []
+        last_author = text.rfind(valid[-1]) + len(valid[-1])
+        authors = text[0:last_author]
+        return [authors]
+
+
+SMART = list(PATTERN) + [SmartAuthor]
+
+
+def test_machine_smart_author():
+    matched = pattern.match(
+        RAW,
+        patterns=SMART,
+        improves=IMPROVES,
+    )
+    expected = ['Bill Nitzberg und Virginia']
+    assert matched['data']['authors'] == expected
+
+
 TITLE = """Michael Armbrust u.a. “Spark SQL: Relational Data Processing
 in Spark”. In: Proceedings of the 2015 ACM SIGMOD International
 Conference on Management of Data.SIGMOD’ 15. Melbourne, Victoria,
@@ -77,7 +108,7 @@ class Titles(pattern.PatternMixin):
         return result
 
 
-TITLES = list(PATTERN) + [Titles()]
+TITLES = list(PATTERN) + [Titles]
 
 
 def test_machine_title():
