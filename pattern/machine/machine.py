@@ -64,6 +64,14 @@ class Regex(Fixed):
         self.name = name.lower()
 
 
+class SimpleCleanup(Fixed):
+
+    def __init__(self):
+        super().__init__('cleanup')
+        self.const = r'(\*\s{1,}\*|\(\*{1,}\)|\*\,\s{1,}\*|\*\.\s{1,}\*)'
+        self.store = False
+
+
 class Method(PatternMixin):
 
     def __init__(self, method: callable):
