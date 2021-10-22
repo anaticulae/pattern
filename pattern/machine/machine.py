@@ -34,7 +34,8 @@ def match(text: str, patterns: list, improves: list = None) -> dict:
             continue
         for item in matched:
             replaced = replaced.replace(item, '*' * len(item))
-        collected[pattern.name] = matched
+        if pattern.store:
+            collected[pattern.name] = matched
     result = dict(text=text, replaced=replaced, data=collected)
     return result
 
@@ -43,6 +44,7 @@ class PatternMixin:
 
     def __init__(self, name: str):
         self.name = name
+        self.store = True
 
 
 class Fixed(PatternMixin):

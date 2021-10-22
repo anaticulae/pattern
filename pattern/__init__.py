@@ -11,6 +11,7 @@ import os
 
 from pattern.machine.machine import Fixed
 from pattern.machine.machine import Method
+from pattern.machine.machine import PatternMixin
 from pattern.machine.machine import Regex
 from pattern.machine.machine import match
 
