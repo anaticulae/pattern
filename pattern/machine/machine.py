@@ -91,10 +91,13 @@ class Method(PatternMixin):
 def prepare(patterns: list):
     result = []
     for pattern in patterns:
+        isclass = str(pattern.__class__) == "<class 'type'>"
         if isinstance(pattern, str):
             result.append(Fixed(const=pattern))
         elif isinstance(pattern, PatternMixin):
             result.append(pattern)
+        elif isclass:
+            result.append(pattern())
         elif callable(pattern):
             result.append(Method(pattern))
     return result
