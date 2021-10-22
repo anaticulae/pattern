@@ -68,7 +68,7 @@ class SmartAuthor(pattern.PatternMixin):
             return []
         last_author = text.rfind(valid[-1]) + len(valid[-1])
         authors = text[0:last_author]
-        return [authors]
+        return authors
 
 
 SMART = list(PATTERN) + [SmartAuthor]
@@ -80,7 +80,7 @@ def test_machine_smart_author():
         patterns=SMART,
         improves=IMPROVES,
     )
-    expected = ['Bill Nitzberg und Virginia']
+    expected = 'Bill Nitzberg und Virginia'
     assert matched['data']['authors'] == expected
 
 
@@ -104,7 +104,7 @@ class Titles(pattern.PatternMixin):
         if not indexs:
             return []
         start, stop = min(indexs), max(indexs)
-        result = [text[start:stop + 1]]
+        result = text[start:stop + 1]
         return result
 
 
@@ -118,4 +118,4 @@ def test_machine_title():
         improves=IMPROVES,
     )
     titles = matched['data']['titles']
-    assert titles == ['“Spark SQL: Relational Data Processing\nin Spark”']
+    assert titles == '“Spark SQL: Relational Data Processing\nin Spark”'
