@@ -32,10 +32,15 @@ def match(text: str, patterns: list, improves: list = None) -> dict:
         matched = pattern(replaced)
         if not matched:
             continue
-        for item in matched:
-            replaced = replaced.replace(item, '*' * len(item))
+        before = matched
+        if isinstance(matched, str):
+            matched = [matched]
+        for raw in matched:
+            if not isinstance(raw, str):
+                raw = raw[1]
+            replaced = replaced.replace(raw, '*' * len(raw))
         if pattern.store:
-            collected[pattern.name] = matched
+            collected[pattern.name] = before
     result = dict(text=text, replaced=replaced, data=collected)
     return result
 
@@ -52,6 +57,7 @@ class Fixed(PatternMixin):
     def __init__(self, const: str):
         super().__init__(name=const.lower())
         self.const = const
+        self.store = False
 
     def __call__(self, text):
         return re.findall(self.const, text, utila.NOCASE_VERBOSE)
@@ -62,6 +68,7 @@ class Regex(Fixed):
     def __init__(self, regex: str, name: str):
         super().__init__(const=regex)
         self.name = name.lower()
+        self.store = True
 
 
 class SimpleCleanup(Fixed):
@@ -83,8 +90,6 @@ class Method(PatternMixin):
 
     def __call__(self, text):
         result = self.method(text)
-        if self.verbose:
-            result = [item[1] for item in result]
         return result
 
 

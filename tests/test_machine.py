@@ -48,8 +48,7 @@ def test_machine_simple():
     assert replaced.count('*') >= 82
     values = list(matched['data'].keys())
     assert values == [
-        'issn', 'doi', 'pagenumbers', 'hyperlink', 'dates_master', 'url:',
-        'in-pattern'
+        'issn', 'doi', 'pagenumbers', 'hyperlink', 'dates_master', 'in-pattern'
     ]
 
 
