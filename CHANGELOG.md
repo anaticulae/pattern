@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.3.0
+
+### Feature
+
+* do not overwrite previous detection (c7f210c23af0)
+* do not remove extracted data (13ce111a1442)
+
 ## v0.2.0
 
 ### Feature
