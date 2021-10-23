@@ -40,7 +40,8 @@ def match(text: str, patterns: list, improves: list = None) -> dict:
                 raw = raw[1]
             replaced = replaced.replace(raw, '*' * len(raw))
         if pattern.store:
-            collected[pattern.name] = before
+            if pattern.overwrite or pattern.name not in collected:
+                collected[pattern.name] = before
     result = dict(text=text, replaced=replaced, data=collected)
     return result
 
@@ -50,6 +51,7 @@ class PatternMixin:
     def __init__(self, name: str):
         self.name = name
         self.store = True
+        self.overwrite = False
 
 
 class Fixed(PatternMixin):
