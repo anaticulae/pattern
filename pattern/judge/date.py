@@ -9,6 +9,8 @@
 
 import re
 
+import utila
+
 
 def validate(item: str) -> float:
     result = [
@@ -22,9 +24,6 @@ def validate(item: str) -> float:
 
 
 DATE_FACTOR = 5.0
-
-MONTH = (r'(?P<month>Januar|Februar|März|April|Mai|Juni|Juli|'
-         r'August|September|Oktober|November|Dezember)')
 
 
 def day_month_year(item: str):
@@ -44,13 +43,18 @@ def day_month_year(item: str):
     return 0.0
 
 
-def day_name_year(item: str):
-    pattern = (r'(?P<day>\d{1,2})\.[ ]{0,1}'
-               f'{MONTH}'
-               r'[ ]{0,1}'
-               r'(?P<year>\d{4})')
-    matched = re.match(pattern, item)
-    if matched:
+DAY_NAME_YEAR = utila.compiles(r"""
+    (?P<day>\d{1,2})\.[ ]{0,1}
+    (?P<month>Januar|Februar|März|April|Mai|Juni|Juli|
+              August|September|Oktober|November|Dezember
+    )
+    [ ]{0,1}
+    (?P<year>\d{4})
+""")
+
+
+def day_name_year(item: str) -> float:
+    if DAY_NAME_YEAR.match(item):
         return DATE_FACTOR
     return 0.0
 
