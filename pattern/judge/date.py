@@ -10,6 +10,7 @@
 import utila
 
 
+@utila.cacheme
 def validate(item: str) -> float:
     result = [
         strategy(item) for strategy in [
@@ -32,6 +33,7 @@ DAY_MONTH_YEAR = utila.compiles(r"""
 """)
 
 
+@utila.cacheme
 def day_month_year(item: str):
     """\
     >>> day_month_year('25.08.1987')
@@ -62,6 +64,7 @@ DAY_NAME_YEAR = utila.compiles(r"""
 """)
 
 
+@utila.cacheme
 def day_name_year(item: str) -> float:
     """\
     >>> day_name_year('20. April 1999')
