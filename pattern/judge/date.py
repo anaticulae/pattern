@@ -49,11 +49,17 @@ DAY_NAME_YEAR = utila.compiles(r"""
               August|September|Oktober|November|Dezember
     )
     [ ]{0,1}
-    (?P<year>\d{4})
+    (?P<year>(20[012]\d|1[789]\d\d))
 """)
 
 
 def day_name_year(item: str) -> float:
+    """\
+    >>> day_name_year('20. April 1999')
+    5.0
+    >>> day_name_year('01. Januar 1733')
+    5.0
+    """
     if DAY_NAME_YEAR.match(item):
         return DATE_FACTOR
     return 0.0
