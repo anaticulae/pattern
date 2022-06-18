@@ -47,7 +47,7 @@ def day_month_year(item: str):
         return 0.0
     if not 1 <= month <= 12:
         return 0.0
-    if not 0 <= year <= 2050:
+    if not 1700 <= year <= 2030:
         return 0.0
     return DATE_FACTOR
 
