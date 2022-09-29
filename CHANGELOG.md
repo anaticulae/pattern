@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.4.0 (2022-09-29)
+
+### Feature
+
+* cache access (ba2007268c22)
+* shrink valid years (9ae2446b3a21)
+* improve year pattern (353c736fd922)
+* shrink date regex (8d14cabf226e)
+
+### Chore
+
+* add Jenkinsfile (4b3edaf98ce1)
+* upgrade requirements.txt (daf237cbf525)
+* upgrade requirements.txt (18eca9dfc2dd)
+
 ## v0.3.1
 
 ## v0.3.0
