@@ -16,6 +16,6 @@ from pattern.machine.machine import Regex
 from pattern.machine.machine import SimpleCleanup
 from pattern.machine.machine import match
 
-__version__ = '0.4.0'
+__version__ = '0.4.1'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
