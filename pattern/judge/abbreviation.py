@@ -10,9 +10,9 @@
 
 def validate(item: str) -> float:
     item = item.lower()
-    result = max([strategy(item) for strategy in [
+    result = max((strategy(item) for strategy in [
         dictionary,
-    ]])
+    ]))
     return result
 
 

@@ -27,7 +27,7 @@ def match(text: str, patterns: list, improves: list = None) -> dict:
             replaced = improve(replaced)
     # collect pattern
     patterns = prepare(patterns)
-    collected = dict()
+    collected = {}
     for pattern in patterns:
         matched = pattern(replaced)
         if not matched:

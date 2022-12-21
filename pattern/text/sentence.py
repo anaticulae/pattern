@@ -8,12 +8,11 @@
 # =============================================================================
 
 import contextlib
-import typing
 
 import pattern.checker
 
 
-def split(text: str) -> typing.List[str]:
+def split(text: str) -> list[str]:
     """Split a regular `text` into sentence chunks.
 
     Args:
