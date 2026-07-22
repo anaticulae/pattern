@@ -6,13 +6,12 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+
 import urllib.parse
 
 
 def validate(item: str) -> float:
-    result = [strategy(item) for strategy in [
-        urllib_parse,
-    ]]
+    result = [strategy(item) for strategy in (urllib_parse,)]
     return max(result)
 
 

@@ -42,7 +42,11 @@ def match(text: str, patterns: list, improves: list = None) -> dict:
         if pattern.store:
             if pattern.overwrite or pattern.name not in collected:
                 collected[pattern.name] = before
-    result = dict(text=text, replaced=replaced, data=collected)
+    result = {
+        "text": text,
+        "replaced": replaced,
+        "data": collected,
+    }
     return result
 
 

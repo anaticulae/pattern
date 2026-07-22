@@ -13,11 +13,11 @@ import utilo
 @utilo.cacheme
 def validate(item: str) -> float:
     result = [
-        strategy(item) for strategy in [
+        strategy(item) for strategy in (
             day_month_year,
             day_name_year,
             no_date,
-        ]
+        )
     ]
     return max(result)
 
