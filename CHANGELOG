@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-07-22)
+
+### Chores
+
+- **make**: Do not release on tagged commit
+  ([`21150ea`](https://github.com/anaticulae/pattern/commit/21150ea5dd6223628c165c45ab3ec1c0f4a5cb2a))
+
+- **make**: Simplify file
+  ([`375b22c`](https://github.com/anaticulae/pattern/commit/375b22c00e477cb758625ab09b38f8b156b6490e))
+
+
 ## v1.0.0 (2026-07-22)
 
 ### Chores
