@@ -1,64 +1,251 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
 
-## v0.4.0 (2022-09-29)
+## v1.0.0 (2026-07-22)
 
-### Feature
+### Chores
 
-* cache access (ba2007268c22)
-* shrink valid years (9ae2446b3a21)
-* improve year pattern (353c736fd922)
-* shrink date regex (8d14cabf226e)
+- **github**: Add .github
+  ([`6420482`](https://github.com/anaticulae/pattern/commit/6420482fff44f2ea2d8624db97e869df69cd6a17))
 
-### Chore
+- **LICENSE**: Add missing license file
+  ([`a00666e`](https://github.com/anaticulae/pattern/commit/a00666ec3c7b24b0567200deb808e2e22c2ab2ea))
 
-* add Jenkinsfile (4b3edaf98ce1)
-* upgrade requirements.txt (daf237cbf525)
-* upgrade requirements.txt (18eca9dfc2dd)
+- **pattern**: Use dynamic version
+  ([`7d3d13b`](https://github.com/anaticulae/pattern/commit/7d3d13b2a30caab9a39e5b6838df660c34576f41))
 
-## v0.3.1
+- **pyproject**: Add modern layout
+  ([`59194af`](https://github.com/anaticulae/pattern/commit/59194af68e5fd619aefb1b9340d40cdb37ad18ce))
 
-## v0.3.0
+- **pyproject**: Add outdated files
+  ([`52eeb1a`](https://github.com/anaticulae/pattern/commit/52eeb1a68068cad1d9e5c2d91a43e7fd5cd366ec))
 
-### Feature
+- **pyproject**: Release on every commit
+  ([`66074cf`](https://github.com/anaticulae/pattern/commit/66074cf4c576d6f7bd6dfdacc83982329fe4feff))
 
-* do not overwrite previous detection (c7f210c23af0)
-* do not remove extracted data (13ce111a1442)
-
-## v0.2.0
-
-### Feature
-
-* add smart author pattern (217fe7ee06e8)
-* add option to use class based approach (bae3eca521c0)
-* add cleanup pattern (6c5299fdf855)
-* add parameter to decide to store data (95d63606d0d9)
-* add Regex pattern (5a216e655ace)
-* add first approach of pattern  machine (e42c9d39b1a1)
-
-## v0.1.1
-
-## v0.1.0
-
-### Feature
-
-* add user text regex generator (22e4178fd0bc)
-* add method to validate sentence (a50f2eec8f1c)
-* move sentence splitter from hey project (31785f60696d)
-* extend abbreviation list (a701ee4d031a)
-* add pattern to check that source is repeated (16a65f387e57)
-* add validator to check number (41109003d879)
-* judge date higher than number (89c60dc844fb)
-* handle o.J. as date and o.A. as person (9c0929507444)
-* add method to split text line into logical token (a0dd772784c8)
-* add method to detect abbreviation (1b790b08e94e)
-* add method to determine that chunk is valid name (a30a116412fe)
-* add method to validate url (b2485b7007ad)
-* add method to judge a German date (79f75f45cb22)
+- **pyproject**: Rename project
+  ([`69d76a6`](https://github.com/anaticulae/pattern/commit/69d76a6ce5e3264fbffd10fc33b452d9adc29d71))
 
 ### Documentation
 
-* add general description of library purpose (bdb1e3834c9a)
+- **readme**: Adjust naming
+  ([`4555849`](https://github.com/anaticulae/pattern/commit/45558496ee349683db6ff00fc2266631361ee177))
 
-## v0.0.0 Initial release
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`37e206e`](https://github.com/anaticulae/pattern/commit/37e206e3f332258eb60d91714f3f4e229a4190f1))
+
+- **packages**: Adjust names
+  ([`b4998bc`](https://github.com/anaticulae/pattern/commit/b4998bcd401c2ff30be1b930a2e71853223e3962))
+
+- **replace**: Automated replacement
+  ([`09c8ca5`](https://github.com/anaticulae/pattern/commit/09c8ca5798ad64f2af1fc4e9153e1ff28fe849ca))
+
+
+## v0.4.0 (2022-09-29)
+
+### Chores
+
+- **ci**: Add Jenkinsfile
+  ([`4b3edaf`](https://github.com/anaticulae/pattern/commit/4b3edaf98ce163ad350c971d4ae7201ba26012a8))
+
+- **requirements**: Upgrade requirements.txt
+  ([`daf237c`](https://github.com/anaticulae/pattern/commit/daf237cbf525d8711046c09cdf4b1c3c10ecd57a))
+
+- **requirements**: Upgrade requirements.txt
+  ([`18eca9d`](https://github.com/anaticulae/pattern/commit/18eca9dfc2ddfc3f4a20f05ec90e43f591950669))
+
+### Code Style
+
+- **changelog**: Adjust to automation tool
+  ([`04fded5`](https://github.com/anaticulae/pattern/commit/04fded53f8874ff7f46eed239d3a8c75e5e14ce2))
+
+### Features
+
+- **date**: Cache access
+  ([`ba20072`](https://github.com/anaticulae/pattern/commit/ba2007268c2267212889192c2117880b57d89759))
+
+- **date**: Improve year pattern
+  ([`353c736`](https://github.com/anaticulae/pattern/commit/353c736fd922dd675378058e6d59f0ec5f3c2ce3))
+
+- **date**: Shrink date regex
+  ([`8d14cab`](https://github.com/anaticulae/pattern/commit/8d14cabf226e43c902dc13bf0e41258d9dfe7406))
+
+- **date**: Shrink valid years
+  ([`9ae2446`](https://github.com/anaticulae/pattern/commit/9ae2446b3a21176e7d0305c29eae049f03a4d3c6))
+
+### Refactoring
+
+- **date**: Simplify code
+  ([`11a3246`](https://github.com/anaticulae/pattern/commit/11a324649c21be185964d8a5ac73fbb2ccbf655a))
+
+
+## v0.3.1 (2021-10-29)
+
+### Chores
+
+- **requirements**: Make utila version less strict
+  ([`38bfead`](https://github.com/anaticulae/pattern/commit/38bfeadc07892ce3a31a19318f4a92ec6e1d9c1d))
+
+
+## v0.3.0 (2021-10-24)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`e3944fc`](https://github.com/anaticulae/pattern/commit/e3944fcfd2194e5f4ab19fa599111780d5c1a736))
+
+### Features
+
+- **machine**: Do not overwrite previous detection
+  ([`c7f210c`](https://github.com/anaticulae/pattern/commit/c7f210c23af0abfef38e9f85a7981ac0cc845f87))
+
+- **machine**: Do not remove extracted data
+  ([`13ce111`](https://github.com/anaticulae/pattern/commit/13ce111a1442827bc8e69a6235407b51e7d858e1))
+
+
+## v0.2.0 (2021-10-22)
+
+### Chores
+
+- **move**: Project config
+  ([`aa932b6`](https://github.com/anaticulae/pattern/commit/aa932b6bd4ccc30da5d96eec67e3f6f1b293211c))
+
+- **requirements**: Add german pattern provider
+  ([`379247e`](https://github.com/anaticulae/pattern/commit/379247ea505e7505ff493a674e7783f989e011a6))
+
+- **requirements**: Upgrade requirements.txt
+  ([`83ebc62`](https://github.com/anaticulae/pattern/commit/83ebc62b0e889dd40f44249477c6987a117eaf03))
+
+- **requirements**: Upgrade requirements.txt
+  ([`9ded825`](https://github.com/anaticulae/pattern/commit/9ded8259cd2da1343ef6a5ab179bd1acb8342103))
+
+- **setup**: Cleanup setup file
+  ([`b03a8fa`](https://github.com/anaticulae/pattern/commit/b03a8fa080238fd487bc0a44ebea41b22d13fa0d))
+
+- **setup**: Introduce machine package
+  ([`ebd75dc`](https://github.com/anaticulae/pattern/commit/ebd75dc1978042b14079bbb2b0148bc59f841718))
+
+### Code Style
+
+- **changelog**: Format file
+  ([`3af6092`](https://github.com/anaticulae/pattern/commit/3af6092c6b147d9d1d8bd8fb574b0418edec8217))
+
+### Features
+
+- **author**: Add smart author pattern
+  ([`217fe7e`](https://github.com/anaticulae/pattern/commit/217fe7ee06e8d9e96fcb06f8ae6446ce8d17602e))
+
+- **machine**: Add cleanup pattern
+  ([`6c5299f`](https://github.com/anaticulae/pattern/commit/6c5299fdf855663247ee15616a1f84ea2f0a79ea))
+
+- **machine**: Add first approach of pattern machine
+  ([`e42c9d3`](https://github.com/anaticulae/pattern/commit/e42c9d39b1a1fb3ce9bba26fb331c58620baecbb))
+
+- **machine**: Add option to use class based approach
+  ([`bae3eca`](https://github.com/anaticulae/pattern/commit/bae3eca521c02830671b1ecf669611838d4472b9))
+
+- **machine**: Add parameter to decide to store data
+  ([`95d6360`](https://github.com/anaticulae/pattern/commit/95d63606d0d95edf09df3f23250a459b24123c5b))
+
+- **machine**: Add Regex pattern
+  ([`5a216e6`](https://github.com/anaticulae/pattern/commit/5a216e655aced2ec876e473f8d64fd43048406ff))
+
+### Refactoring
+
+- **machine**: Improve pattern machine
+  ([`134ccb0`](https://github.com/anaticulae/pattern/commit/134ccb0ac2b46895ade8c2c8cc2ae79a75f469ba))
+
+### Testing
+
+- **adjust**: Adjust pattern extractor
+  ([`2c6eca4`](https://github.com/anaticulae/pattern/commit/2c6eca47fdf6f7b6148fb662ecff2e69f192dfad))
+
+- **machine**: Add title extractor test
+  ([`d4debd6`](https://github.com/anaticulae/pattern/commit/d4debd6686cb1da58bead1f55031de86005b10fd))
+
+
+## v0.1.1 (2021-10-21)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`d277153`](https://github.com/anaticulae/pattern/commit/d277153a28742ad01dc6462bd294e9fe95a303d9))
+
+### Code Style
+
+- **formatter**: Use improve formatter
+  ([`90711ca`](https://github.com/anaticulae/pattern/commit/90711cad6b37c5f8c58507bf77fca995d7164d2e))
+
+### Testing
+
+- **style**: Add missing copyright header
+  ([`ccd3ea1`](https://github.com/anaticulae/pattern/commit/ccd3ea1b8386db7096c99765f7d2a19e87901eda))
+
+
+## v0.1.0 (2020-01-22)
+
+### Chores
+
+- **requirements**: Add utila package
+  ([`0fa79f9`](https://github.com/anaticulae/pattern/commit/0fa79f96facb7fa3db604fbcaf2eb0b600d3151d))
+
+### Documentation
+
+- **index**: Add general description of library purpose
+  ([`bdb1e38`](https://github.com/anaticulae/pattern/commit/bdb1e3834c9afaa9db783b902fdf7fba437a93b1))
+
+### Features
+
+- **abbreviation**: Add method to detect abbreviation
+  ([`1b790b0`](https://github.com/anaticulae/pattern/commit/1b790b08e94e3483ab762640705aafa706b6c4f8))
+
+- **abbreviation**: Extend abbreviation list
+  ([`a701ee4`](https://github.com/anaticulae/pattern/commit/a701ee4d031ab3349ca8db120daccd3354ad027e))
+
+- **date**: Add method to judge a German date
+  ([`79f75f4`](https://github.com/anaticulae/pattern/commit/79f75f45cb222aadd00a775c9911f90ba273e02c))
+
+- **date**: Judge date higher than number
+  ([`89c60dc`](https://github.com/anaticulae/pattern/commit/89c60dc844fb407ead81e4eec2cd83668bc7d5e5))
+
+- **number**: Add validator to check number
+  ([`4110900`](https://github.com/anaticulae/pattern/commit/41109003d879c7e9a28f357f45cc87b9b0df7ba1))
+
+- **person**: Add method to determine that chunk is valid name
+  ([`a30a116`](https://github.com/anaticulae/pattern/commit/a30a116412fe25126006d72f2b204bd898716f03))
+
+- **sentence**: Add method to validate sentence
+  ([`a50f2ee`](https://github.com/anaticulae/pattern/commit/a50f2eec8f1c7ac0b96ad29b1b61163f969b1fb8))
+
+- **sentence**: Move sentence splitter from hey project
+  ([`31785f6`](https://github.com/anaticulae/pattern/commit/31785f60696d8d8a7de65377142d4a70a5df29c2))
+
+- **source**: Add pattern to check that source is repeated
+  ([`16a65f3`](https://github.com/anaticulae/pattern/commit/16a65f387e572145ac986678bc014d17dadeb0fd))
+
+- **split**: Add method to split text line into logical token
+  ([`a0dd772`](https://github.com/anaticulae/pattern/commit/a0dd772784c849f5f84f204853f0c7d72ed5b648))
+
+- **split**: Handle o.J. as date and o.A. as person
+  ([`9c09295`](https://github.com/anaticulae/pattern/commit/9c092950744477c352124cd60676c666116b4f57))
+
+- **text**: Add user text regex generator
+  ([`22e4178`](https://github.com/anaticulae/pattern/commit/22e4178fd0bc89efe41408f4db49a54d0be5ac2d))
+
+- **url**: Add method to validate url
+  ([`b2485b7`](https://github.com/anaticulae/pattern/commit/b2485b7007ada796375e085415181fb6db268f4f))
+
+### Refactoring
+
+- **split**: Refactor tokenizer
+  ([`d2a7279`](https://github.com/anaticulae/pattern/commit/d2a7279129c0569fa1c8b00ad6b2ceda43a0d4d9))
+
+- **token**: Move token to separate module
+  ([`a81addd`](https://github.com/anaticulae/pattern/commit/a81addda31702614b1ad33a107b4def7fde2fea2))
+
+
+## v0.0.0 (2020-01-21)
+
+- Initial Release
