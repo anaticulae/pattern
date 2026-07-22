@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
+import importlib.metadata
 import os
 
 from pattern.machine.machine import Fixed
@@ -16,6 +17,6 @@ from pattern.machine.machine import Regex
 from pattern.machine.machine import SimpleCleanup
 from pattern.machine.machine import match
 
-__version__ = '0.4.0'
+__version__ = importlib.metadata.version('exemplum')
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
