@@ -16,7 +16,7 @@
 import functools
 import re
 
-import utila
+import utilo
 
 
 def match(text: str, patterns: list, improves: list = None) -> dict:
@@ -62,7 +62,7 @@ class Fixed(PatternMixin):
         self.store = False
 
     def __call__(self, text):
-        return re.findall(self.const, text, utila.NOCASE_VERBOSE)
+        return re.findall(self.const, text, utilo.NOCASE_VERBOSE)
 
 
 class Regex(Fixed):
@@ -85,7 +85,7 @@ class Method(PatternMixin):
 
     def __init__(self, method: callable):
         super().__init__(name=method.__name__.lower())
-        self.verbose = 'verbose' in utila.attributes(method)
+        self.verbose = 'verbose' in utilo.attributes(method)
         if self.verbose:
             method = functools.partial(method, verbose=True)
         self.method = method

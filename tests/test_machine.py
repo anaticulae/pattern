@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import german
-import utila
+import germania
+import utilo
 
 import pattern
 
@@ -22,19 +22,19 @@ URL = 'URL:'
 IN = r'IN:[^\*]+'
 
 PATTERN = (
-    german.issn,
-    german.isbn,
-    german.doi,
-    german.pagenumbers,
-    german.hyperlink,
-    german.dates_master,
+    germania.issn,
+    germania.isbn,
+    germania.doi,
+    germania.pagenumbers,
+    germania.hyperlink,
+    germania.dates_master,
     URL,
     pattern.SimpleCleanup,
     pattern.Regex(regex=IN, name='in-pattern'),
     pattern.SimpleCleanup,
 )
 
-IMPROVES = (german.href_magic,)
+IMPROVES = (germania.href_magic,)
 
 
 def test_machine_simple():
@@ -62,7 +62,7 @@ class SmartAuthor(pattern.PatternMixin):
         if first_star != -1:
             text = text[0:first_star]
         words = text.split()
-        valid = [item for item in words if german.isperson(item)]
+        valid = [item for item in words if germania.isperson(item)]
         if not valid:
             return []
         last_author = text.rfind(valid[-1]) + len(valid[-1])
@@ -99,7 +99,7 @@ class Titles(pattern.PatternMixin):
         super().__init__('titles')
 
     def __call__(self, text):
-        indexs = utila.findindexs(text, Titles.QUOTATIONS)
+        indexs = utilo.findindexs(text, Titles.QUOTATIONS)
         if not indexs:
             return []
         start, stop = min(indexs), max(indexs)

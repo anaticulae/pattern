@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 
-@utila.cacheme
+@utilo.cacheme
 def validate(item: str) -> float:
     result = [
         strategy(item) for strategy in [
@@ -24,7 +24,7 @@ def validate(item: str) -> float:
 
 DATE_FACTOR = 5.0
 
-DAY_MONTH_YEAR = utila.compiles(r"""
+DAY_MONTH_YEAR = utilo.compiles(r"""
     (?P<day>\d{1,2})
     \.
     (?P<month>\d{1,2})
@@ -33,7 +33,7 @@ DAY_MONTH_YEAR = utila.compiles(r"""
 """)
 
 
-@utila.cacheme
+@utilo.cacheme
 def day_month_year(item: str):
     """\
     >>> day_month_year('25.08.1987')
@@ -54,7 +54,7 @@ def day_month_year(item: str):
     return DATE_FACTOR
 
 
-DAY_NAME_YEAR = utila.compiles(r"""
+DAY_NAME_YEAR = utilo.compiles(r"""
     (?P<day>\d{1,2})\.[ ]{0,1}
     (?P<month>Januar|Februar|März|April|Mai|Juni|Juli|
               August|September|Oktober|November|Dezember
@@ -64,7 +64,7 @@ DAY_NAME_YEAR = utila.compiles(r"""
 """)
 
 
-@utila.cacheme
+@utilo.cacheme
 def day_name_year(item: str) -> float:
     """\
     >>> day_name_year('20. April 1999')
