@@ -4,35 +4,34 @@ VERSION := $(shell git rev-parse --short HEAD 2>/dev/null || echo "latest")
 CURDIR := $(CURDIR)
 
 NAME = pattern
-IMAGE := $(NAME):$(VERSION)
-IMAGE_NAME := ghcr.io/anaticulae/$(IMAGE)
+IMAGE := ghcr.io/anaticulae/$(NAME):$(VERSION)
 
 docker-build:
-	docker build -t $(IMAGE_NAME) .
+	docker build -t $(IMAGE) .
 
 docker-upload:
-	docker push $(IMAGE_NAME)
+	docker push $(IMAGE)
 
 docker-doctest: docker-build
 	docker run\
 		-v $(CURDIR):/var/workdir\
-		$(IMAGE_NAME)\
+		$(IMAGE)\
 		"baw test docs"
 
 docker-fasttest: docker-build
 	docker run\
 		-v $(CURDIR):/var/workdir\
-		$(IMAGE_NAME)\
+		$(IMAGE)\
 		"baw test fast"
 
 docker-lint: docker-build
 	docker run\
 		-v $(CURDIR):/var/workdir\
-		$(IMAGE_NAME)\
+		$(IMAGE)\
 		"baw lint all"
 
 docker-release: docker-build
 	docker run -v $(CURDIR):/var/workdir\
 		-e GH_TOKEN\
-		$(IMAGE_NAME)\
+		$(IMAGE)\
 		"baw release --no_test --no_linter"
